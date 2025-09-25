@@ -20,3 +20,10 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/banner.png
+
+  fonts:
+    - family: Gilker
+      fonts:
+        - asset: assets/images/fonts/gliker-Regular.ttf
+      

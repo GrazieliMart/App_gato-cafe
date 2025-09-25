@@ -19,7 +19,7 @@ class GatoCafeApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.brown,
-        fontFamily: 'Futura',
+    fontFamily: "Gilker",
       ),
       initialRoute: '/',
       routes: {
