@@ -5,10 +5,11 @@ import 'screens/splash_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/offers_screen.dart';
 import 'screens/home_screen.dart';
+import 'screens/user_screen.dart';
 import 'providers/cart_provider.dart';
 import 'screens/products_screen.dart';
 import 'screens/cart_screen.dart';
-import 'screens/profile_screen.dart';
+
 import 'screens/admin/admin_home_screen.dart';
 
 void main() {
@@ -40,8 +41,8 @@ class GatoCafeApp extends StatelessWidget {
         '/products': (context) => ProductsScreen(),
         '/cart': (context) => CartScreen(),
         '/offers': (context) => OfertasScreen(),
-        '/profile': (context) => ProfileScreen(),
         '/admin': (context) => AdminHomeScreen(),
+          '/user': (context) => UserScreen(),
       },
     );
   }

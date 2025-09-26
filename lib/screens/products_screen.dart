@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/cart_provider.dart';
+import 'package:gatocafe/screens/user_screen.dart';
 import '../models/cart_item_model.dart';
 import 'btn_padrao_sem_fundo.dart'; // botão reutilizável da Home
 
@@ -15,7 +16,7 @@ class ProductsScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 26),
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("../assets/images/fundo-appbar.png"),
+              image: AssetImage("assets/images/fundo-appbar.png"),
               fit: BoxFit.cover,
             ),
           ),
@@ -40,31 +41,38 @@ class ProductsScreen extends StatelessWidget {
                 Transform.translate(
                   offset: const Offset(-20, 0),
                   child: Image.asset(
-                    "../assets/images/logo-nav.png",
+                    "assets/images/logo-nav.png",
                     height: 250,
                   ),
                 ),
-                Stack(
-                  alignment: Alignment.topRight,
-                  children: [
-                    IconButton(
-                      icon: const Icon(Icons.menu, color: Colors.white),
-                      onPressed: () {},
-                    ),
-                    Positioned(
-                      right: 8,
-                      top: 8,
-                      child: Container(
-                        width: 10,
-                        height: 10,
-                        decoration: const BoxDecoration(
-                          color: Colors.red,
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                 Stack(
+  alignment: Alignment.topRight,
+  children: [
+    IconButton(
+      icon: const Icon(Icons.menu, color: Colors.white),
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const UserScreen(),
+          ),
+        );
+      },
+    ),
+    Positioned(
+      right: 8,
+      top: 8,
+      child: Container(
+        width: 10,
+        height: 10,
+        decoration: const BoxDecoration(
+          color: Colors.red,
+          shape: BoxShape.circle,
+        ),
+      ),
+    ),
+  ],
+),
               ],
             ),
           ),
@@ -78,7 +86,7 @@ class ProductsScreen extends StatelessWidget {
           children: [
             Row(
               children: [
-                Image.asset("../assets/images/patinha.png", width: 24, height: 24),
+                Image.asset("assets/images/patinha.png", width: 24, height: 24),
                 const SizedBox(width: 8),
                 const Text(
                   "Todos os Produtos",
@@ -100,49 +108,49 @@ class ProductsScreen extends StatelessWidget {
                   title: 'Pão de Queijo',
                   subtitle: '10 unidades',
                   price: 5.50,
-                  image: '../assets/images/pao-de-queijo.png',
+                  image: 'assets/images/pao-de-queijo.png',
                 ),
                 ProductCard(
                   title: 'Café Expresso',
                   subtitle: '150ml',
                   price: 2.50,
-                  image: '../assets/images/cafe.png',
+                  image: 'assets/images/cafe.png',
                 ),
                 ProductCard(
                   title: 'Leite com chocolate',
                   subtitle: '350ml',
                   price: 3.50,
-                  image: '../assets/images/leite-com-chocolate.png',
+                  image: 'assets/images/leite-com-chocolate.png',
                 ),
                 ProductCard(
                   title: 'Cappucino',
                   subtitle: '250ml',
                   price: 2.50,
-                  image: '../assets/images/cappucino.png',
+                  image: 'assets/images/cappucino.png',
                 ),
                 ProductCard(
                   title: 'Lanche de carne',
                   subtitle: '500g',
                   price: 9.50,
-                  image: '../assets/images/lanche-de-carne.png',
+                  image: 'assets/images/lanche-de-carne.png',
                 ),
                 ProductCard(
                   title: 'Empadinha de palmito',
                   subtitle: '5 unidades',
                   price: 6.50,
-                  image: '../assets/images/empada.png',
+                  image: 'assets/images/empada.png',
                 ),
                 ProductCard(
                   title: 'Sanduíche Bauru',
                   subtitle: '1 unidade',
                   price: 6.50,
-                  image: '../assets/images/tostex.png',
+                  image: 'assets/images/tostex.png',
                 ),
                 ProductCard(
                   title: 'Brownie',
                   subtitle: '1 unidade',
                   price: 1.50,
-                  image: '../assets/images/brownie.png',
+                  image: 'assets/images/brownie.png',
                 ),
               ],
             ),
@@ -163,24 +171,24 @@ class ProductsScreen extends StatelessWidget {
         selectedItemColor: Colors.red,
         unselectedItemColor: Colors.black54,
         items: [
-          BottomNavigationBarItem(
-            icon: Image.asset("../assets/images/home.png", height: 24, color: Colors.black54),
-            activeIcon: Image.asset("../assets/images/home.png", height: 24, color: Colors.red),
+          BottomNavigationBarItem(  
+            icon: Image.asset("assets/images/home.png", height: 24, color: Colors.black54),
+            activeIcon: Image.asset("assets/images/home.png", height: 24, color: Colors.red),
             label: 'Início',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset("../assets/images/produtos.png", height: 24, color: Colors.black54),
-            activeIcon: Image.asset("../assets/images/produtos.png", height: 24, color: Colors.red),
+            icon: Image.asset("assets/images/produtos.png", height: 24, color: Colors.black54),
+            activeIcon: Image.asset("assets/images/produtos.png", height: 24, color: Colors.red),
             label: 'Produtos',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset("../assets/images/ofertas.png", height: 24, color: Colors.black54),
-            activeIcon: Image.asset("../assets/images/ofertas.png", height: 24, color: Colors.red),
+            icon: Image.asset("assets/images/ofertas.png", height: 24, color: Colors.black54),
+            activeIcon: Image.asset("assets/images/ofertas.png", height: 24, color: Colors.red),
             label: 'Ofertas',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset("../assets/images/carrinho.png", height: 24, color: Colors.black54),
-            activeIcon: Image.asset("../assets/images/carrinho.png", height: 24, color: Colors.red),
+            icon: Image.asset("assets/images/carrinho.png", height: 24, color: Colors.black54),
+            activeIcon: Image.asset("assets/images/carrinho.png", height: 24, color: Colors.red),
             label: 'Carrinho',
           ),
         ],

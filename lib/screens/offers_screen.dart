@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:gatocafe/screens/user_screen.dart';
 class OfertasScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class OfertasScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 26),
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("../assets/images/fundo-appbar.png"),
+              image: AssetImage("assets/images/fundo-appbar.png"),
               fit: BoxFit.cover,
             ),
           ),
@@ -36,31 +36,38 @@ class OfertasScreen extends StatelessWidget {
                 Transform.translate(
                   offset: const Offset(-20, 0),
                   child: Image.asset(
-                    "../assets/images/logo-nav.png",
+                    "assets/images/logo-nav.png",
                     height: 250,
                   ),
                 ),
                 Stack(
-                  alignment: Alignment.topRight,
-                  children: [
-                    IconButton(
-                      icon: const Icon(Icons.menu, color: Colors.white),
-                      onPressed: () {},
-                    ),
-                    Positioned(
-                      right: 8,
-                      top: 8,
-                      child: Container(
-                        width: 10,
-                        height: 10,
-                        decoration: const BoxDecoration(
-                          color: Colors.red,
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+  alignment: Alignment.topRight,
+  children: [
+    IconButton(
+      icon: const Icon(Icons.menu, color: Colors.white),
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const UserScreen(),
+          ),
+        );
+      },
+    ),
+    Positioned(
+      right: 8,
+      top: 8,
+      child: Container(
+        width: 10,
+        height: 10,
+        decoration: const BoxDecoration(
+          color: Colors.red,
+          shape: BoxShape.circle,
+        ),
+      ),
+    ),
+  ],
+),
               ],
             ),
           ),
@@ -191,7 +198,7 @@ class OfertasScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Image.asset(
-                                  "../assets/images/miau.png",
+                                  "assets/images/miau.png",
                                   width: 120,
                                   height: 50,
                                   fit: BoxFit.contain,
@@ -220,7 +227,7 @@ class OfertasScreen extends StatelessWidget {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8),
                             child: Image.asset(
-                              "../assets/images/cafe.png",
+                              "assets/images/cafe.png",
                               width: 80,
                               height: 80,
                               fit: BoxFit.cover,
@@ -233,7 +240,7 @@ class OfertasScreen extends StatelessWidget {
                       top: -100,
                       left: 20,
                       child: Image.asset(
-                        "../assets/images/gato-ofertas.png",
+                        "assets/images/gato-ofertas.png",
                         height: 220,
                       ),
                     ),
@@ -264,7 +271,7 @@ Column(
     const SizedBox(height: 12),
     ElevatedButton.icon(
       onPressed: () {},
-      icon: Image.asset("../assets/images/patinha.png", height: 20),
+      icon: Image.asset("assets/images/patinha.png", height: 20),
       label: const Text("30 Pts"),
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.red,
@@ -277,7 +284,7 @@ Column(
     ),
     const SizedBox(height: 16),
     RewardCardSingle(
-      image: "../assets/images/cafe.png",
+      image: "assets/images/cafe.png",
       title: "Café Expresso",
       subtitle: "150 ml",
     ),
@@ -294,7 +301,7 @@ Column(
     const SizedBox(height: 12),
     ElevatedButton.icon(
       onPressed: () {},
-      icon: Image.asset("../assets/images/patinha.png", height: 20),
+      icon: Image.asset("assets/images/patinha.png", height: 20),
       label: const Text("40 Pts"),
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.red,
@@ -310,7 +317,7 @@ Column(
       children: [
         Expanded(
           child: RewardCardVertical(
-            image: "../assets/images/bolo-de-cenoura.png",
+            image: "assets/images/bolo-de-cenoura.png",
             title: "Bolo de Cenoura",
             subtitle: "1 fatia de 300g",
           ),
@@ -331,7 +338,7 @@ Column(
         const SizedBox(width: 8),
         Expanded(
           child: RewardCardVertical(
-            image: "../assets/images/brownie.png",
+            image: "assets/images/brownie.png",
             title: "Brownie",
             subtitle: "1 fatia de 300g",
           ),
@@ -351,7 +358,7 @@ Column(
     const SizedBox(height: 12),
     ElevatedButton.icon(
       onPressed: () {},
-      icon: Image.asset("../assets/images/patinha.png", height: 20),
+      icon: Image.asset("assets/images/patinha.png", height: 20),
       label: const Text("50 Pts"),
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.red,
@@ -364,7 +371,7 @@ Column(
     ),
     const SizedBox(height: 16),
     RewardCardSingle(
-      image: "../assets/images/passe-vip.png",
+      image: "assets/images/passe-vip.png",
       title: "Passe Vip",
       subtitle: "1 entrada Grátis para gatódromo.",
     ),
@@ -381,7 +388,7 @@ Column(
     const SizedBox(height: 12),
     ElevatedButton.icon(
       onPressed: () {},
-      icon: Image.asset("../assets/images/patinha.png", height: 20),
+      icon: Image.asset("assets/images/patinha.png", height: 20),
       label: const Text("60 Pts"),
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.red,
@@ -397,7 +404,7 @@ Column(
       children: [
         Expanded(
           child: RewardCardVertical(
-            image: "../assets/images/pao-manteiga.png",
+            image: "assets/images/pao-manteiga.png",
             title: "4 Pães na Chapa",
             subtitle: "com manteiga",
           ),
@@ -418,7 +425,7 @@ Column(
         const SizedBox(width: 8),
         Expanded(
           child: RewardCardVertical(
-            image: "../assets/images/pao-de-queijo.png",
+            image: "assets/images/pao-de-queijo.png",
             title: "4 Pães de Queijo",
             subtitle: "150g cada",
           ),
@@ -453,23 +460,23 @@ Column(
         unselectedItemColor: Colors.black54,
         items: [
           BottomNavigationBarItem(
-            icon: Image.asset("../assets/images/home.png", height: 24, color: Colors.black54),
-            activeIcon: Image.asset("../assets/images/home.png", height: 24, color: Colors.red),
+            icon: Image.asset("assets/images/home.png", height: 24, color: Colors.black54),
+            activeIcon: Image.asset("assets/images/home.png", height: 24, color: Colors.red),
             label: 'Início',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset("../assets/images/produtos.png", height: 24, color: Colors.black54),
-            activeIcon: Image.asset("../assets/images/produtos.png", height: 24, color: Colors.red),
+            icon: Image.asset("assets/images/produtos.png", height: 24, color: Colors.black54),
+            activeIcon: Image.asset("assets/images/produtos.png", height: 24, color: Colors.red),
             label: 'Produtos',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset("../assets/images/ofertas.png", height: 24, color: Colors.black54),
-            activeIcon: Image.asset("../assets/images/ofertas.png", height: 24, color: Colors.red),
+            icon: Image.asset("assets/images/ofertas.png", height: 24, color: Colors.black54),
+            activeIcon: Image.asset("assets/images/ofertas.png", height: 24, color: Colors.red),
             label: 'Ofertas',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset("../assets/images/carrinho.png", height: 24, color: Colors.black54),
-            activeIcon: Image.asset("../assets/images/carrinho.png", height: 24, color: Colors.red),
+            icon: Image.asset("assets/images/carrinho.png", height: 24, color: Colors.black54),
+            activeIcon: Image.asset("assets/images/carrinho.png", height: 24, color: Colors.red),
             label: 'Carrinho',
           ),
         ],

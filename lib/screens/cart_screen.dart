@@ -64,7 +64,7 @@
           decoration: const BoxDecoration(
             color: Color(0xFFFFF4E8),
             image: DecorationImage(
-              image: AssetImage("../assets/images/fundo-padrao.png"),
+              image: AssetImage("assets/images/fundo-padrao.png"),
               fit: BoxFit.cover,
             ),
           ),
@@ -131,7 +131,7 @@
     ),
     padding: const EdgeInsets.symmetric(vertical: 14),
   ),
-  icon: Image.asset("../assets/images/patinha.png", height: 20),
+  icon: Image.asset("assets/images/patinha.png", height: 20),
   label: Text(
     cart.appliedCoupon == null ? "Adicionar cupom" : "Trocar cupom",
     style: const TextStyle(fontSize: 16, color: Colors.white),
@@ -169,7 +169,7 @@
                         color: Colors.orange,
                         borderRadius: BorderRadius.circular(20),
                         image: const DecorationImage(
-                          image: AssetImage("../assets/images/fundo-carrinho.png"),
+                          image: AssetImage("assets/images/fundo-carrinho.png"),
                           fit: BoxFit.cover,
                         ),
                       ),
