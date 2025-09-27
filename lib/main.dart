@@ -6,6 +6,7 @@ import 'screens/login_screen.dart';
 import 'screens/offers_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/user_screen.dart';
+import 'providers/order_provider.dart';
 import 'providers/cart_provider.dart';
 import 'screens/products_screen.dart';
 import 'screens/cart_screen.dart';
@@ -17,6 +18,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => CartProvider()),
+        ChangeNotifierProvider(create: (_) => OrderProvider()), // 👈 faltava isso
       ],
       child: GatoCafeApp(),
     ),

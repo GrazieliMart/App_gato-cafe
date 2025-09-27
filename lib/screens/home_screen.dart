@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gatocafe/screens/user_screen.dart';
 import 'btn_padrao_sem_fundo.dart'; // importa o botão reutilizável
 import '../providers/cart_provider.dart';
+import '../providers/order_provider.dart';
 import '../models/cart_item_model.dart';
 import 'package:provider/provider.dart';
 

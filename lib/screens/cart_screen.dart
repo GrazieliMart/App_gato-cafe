@@ -1,8 +1,14 @@
-  import 'package:flutter/material.dart';
-  import 'package:provider/provider.dart';
-  import '../providers/cart_provider.dart';
-  import '../models/cart_item_model.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+// Imports locais
+import '../providers/cart_provider.dart';
+import '../providers/order_provider.dart';
+import '../models/cart_item_model.dart';
+import '../models/order_model.dart';
+import 'order_success_dialog.dart';
+
+  
   class CartScreen extends StatelessWidget {
     const CartScreen({super.key});
 
@@ -205,21 +211,62 @@
                               ],
                             ),
                           ),
-                          ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.red,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 20, vertical: 12),
-                            ),
-                            onPressed: () {},
-                            child: const Text(
-                              "Continuar",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          )
+                     ElevatedButton(
+  style: ElevatedButton.styleFrom(
+    backgroundColor: Colors.red,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(30),
+    ),
+    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+  ),
+  onPressed: () {
+    if (cart.items.isEmpty) {
+      // Aviso se o carrinho estiver vazio
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Seu carrinho está vazio!"),
+          backgroundColor: Colors.red,
+        ),
+      );
+      return;
+    }
+
+    final orderProvider = Provider.of<OrderProvider>(context, listen: false);
+
+    // Criar novo pedido
+    final newOrder = OrderModel(
+      id: DateTime.now().millisecondsSinceEpoch,
+      date: DateTime.now(),
+      items: cart.items.map((e) => {
+        "title": e.title,
+        "subtitle": e.subtitle,
+        "qty": e.qty,
+        "price": e.price,
+      }).toList(),
+      total: cart.finalPrice,
+      points: (cart.finalPrice ~/ 10), // exemplo: 1 ponto a cada R$10
+      notes: "Entregue na mesa.", // ou coletar do usuário
+    );
+
+    // Salvar pedido
+    orderProvider.addOrder(newOrder);
+
+    // Limpar carrinho
+    cart.clearCart();
+
+    // Abrir dialog de sucesso
+    showDialog(
+      context: context,
+      builder: (_) => const OrderSuccessDialog(),
+    );
+  },
+  child: const Text(
+    "Continuar",
+    style: TextStyle(color: Colors.white),
+  ),
+)
+
+
                         ],
                       ),
                     ),
